@@ -29,8 +29,15 @@ function update(id, attributes){
         return address;
     })
 }
-function destory(id){
-    return Address.destory()
+function destroy(addressId){
+    return Address.destroy({
+        where: {
+          id: addressId
+        }
+      }).then((address) => {
+        return address;
+    })
+
 }
 
-module.exports = {create,list,view,update,destory};
+module.exports = {create,list,view,update,destroy};

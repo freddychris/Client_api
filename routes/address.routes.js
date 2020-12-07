@@ -5,7 +5,7 @@ function addresses(fastify, opts, next) {
     fastify.get('/addresses', addressController.list);
     fastify.get('/addresses/:addresses_id', addressController.view);
     fastify.put('/addresses/:addresses_id/update', addressController.update);
-    fastify.delete('/addresses/:addresses_id/delete', addressController.destroy );
+    fastify.delete('/addresses/:addresses_id/destroy', addressController.destroy );
     next();
 }
 

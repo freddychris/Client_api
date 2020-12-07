@@ -28,6 +28,7 @@ const view = (req, res)=>{
 const update = (req, res)=>{
     var test = req.params.addresses_id;
     var attributes = req.body;
+  
     return AddressServices.update(test,attributes).then((result)=>{
         res.send(result)
     }).catch((error)=>{
@@ -38,15 +39,11 @@ const update = (req, res)=>{
 const destroy = (req, res)=>{
     var addressId = req.params.addresses_id
     return AddressServices.destroy(addressId).then((result)=>{
-        res.send(result)
-        console.log( "DELETED SUCCESSFULLY");
+        res.send({message: "DELETED SUCCESSFULLY"})
     }).catch((error)=>{
         console.log('errror is', error);
         res.send(error)
     })
 }
 
-
-
-
-module.exports = {create,list,view,update,destroy }
+module.exports = {create,list,view,update,destroy}
